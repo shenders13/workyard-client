@@ -24463,8 +24463,6 @@
 	
 	var styles = {
 	  background: {
-	    color: 'blue',
-	    fontSize: 20,
 	    backgroundImage: "url('http://res.cloudinary.com/small-change/image/upload/v1483344331/Group_dumglk.png')",
 	    backgroundSize: 'cover',
 	    backgroundRepeat: 'no-repeat',
@@ -24482,12 +24480,28 @@
 	    width: '80%',
 	    height: '50px',
 	    border: 'none',
-	    marginTop: '20px'
+	    marginTop: '20px',
+	    paddingLeft: '20px',
+	    color: '#a6a9a9'
 	  },
 	  topField: {
 	    marginTop: '70px',
 	    background: '#504C5B',
 	    borderRadius: '50px',
+	    width: '80%',
+	    height: '50px',
+	    border: 'none',
+	    paddingLeft: '20px',
+	    color: '#a6a9a9'
+	  },
+	  submitButton: {
+	    display: 'inline',
+	    marginTop: '20px',
+	    background: '#00B4B1',
+	    borderRadius: '50px',
+	    color: 'white',
+	    fontSize: '18px',
+	    fontWeight: '400',
 	    width: '80%',
 	    height: '50px',
 	    border: 'none'
@@ -24500,7 +24514,12 @@
 	  function Login(props) {
 	    _classCallCheck(this, Login);
 	
-	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+	
+	    _this.state = {
+	      fieldFocus: false
+	    };
+	    return _this;
 	  }
 	
 	  _createClass(Login, [{
@@ -24513,14 +24532,16 @@
 	          'div',
 	          { className: 'col-xs-4 col-xs-offset-4', style: _common_styles2.default.centre },
 	          _react2.default.createElement('img', { src: 'http://res.cloudinary.com/small-change/image/upload/v1483344546/title_1_yxjmm8.png',
-	            style: styles.titleImage
+	            style: styles.titleImage,
+	            className: 'animated flipInX'
 	          }),
 	          _react2.default.createElement(
 	            'form',
 	            null,
-	            _react2.default.createElement('input', { type: 'text', name: 'firstname', value: 'Mickey', style: styles.topField }),
-	            _react2.default.createElement('input', { type: 'text', name: 'lastname', value: 'Mouse', style: styles.inputField }),
-	            _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+	            _react2.default.createElement('input', { type: 'text', id: 'username', placeholder: 'Username', style: styles.topField }),
+	            _react2.default.createElement('input', { type: 'text', id: 'password', placeholder: 'Password', style: styles.inputField }),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement('input', { type: 'submit', value: 'Log In', style: styles.submitButton })
 	          )
 	        ),
 	        _react2.default.createElement(
