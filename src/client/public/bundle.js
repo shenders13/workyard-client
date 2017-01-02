@@ -63,7 +63,7 @@
 	
 	var _redux = __webpack_require__(/*! redux */ 190);
 	
-	var _reducers = __webpack_require__(/*! ./reducers */ 218);
+	var _reducers = __webpack_require__(/*! ./reducers */ 219);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
@@ -22036,11 +22036,11 @@
 	
 	var _reactRedux = __webpack_require__(/*! react-redux */ 179);
 	
-	var _ExampleComponent = __webpack_require__(/*! ../components/ExampleComponent.jsx */ 217);
+	var _Login = __webpack_require__(/*! ../components/Login.jsx */ 217);
 	
-	var _ExampleComponent2 = _interopRequireDefault(_ExampleComponent);
+	var _Login2 = _interopRequireDefault(_Login);
 	
-	var _index = __webpack_require__(/*! ../actions/index */ 220);
+	var _index = __webpack_require__(/*! ../actions/index */ 218);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
@@ -22064,17 +22064,10 @@
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      console.log('this.props: ', this.props);
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          ' Props from store: ',
-	          this.props.text
-	        ),
-	        _react2.default.createElement(_ExampleComponent2.default, { updateText: this.props.updateText })
+	        _react2.default.createElement(_Login2.default, { updateText: this.props.updateText })
 	      );
 	    }
 	  }]);
@@ -22083,8 +22076,7 @@
 	}(_react2.default.Component);
 	
 	var mapStateToProps = function mapStateToProps(state) {
-	  var props = { text: state.exampleReducer.text
-	  };
+	  var props = { text: state.exampleReducer.text };
 	  return props;
 	};
 	
@@ -24440,9 +24432,9 @@
 
 /***/ },
 /* 217 */
-/*!********************************************************!*\
-  !*** ./src/client/app/components/ExampleComponent.jsx ***!
-  \********************************************************/
+/*!*********************************************!*\
+  !*** ./src/client/app/components/Login.jsx ***!
+  \*********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24457,6 +24449,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _common_styles = __webpack_require__(/*! ../common_styles */ 221);
+	
+	var _common_styles2 = _interopRequireDefault(_common_styles);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24465,96 +24461,84 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var ExampleComponent = function (_React$Component) {
-	  _inherits(ExampleComponent, _React$Component);
+	var styles = {
+	  background: {
+	    color: 'blue',
+	    fontSize: 20,
+	    backgroundImage: "url('http://res.cloudinary.com/small-change/image/upload/v1483344331/Group_dumglk.png')",
+	    backgroundSize: 'cover',
+	    backgroundRepeat: 'no-repeat',
+	    height: '100%'
+	  },
+	  titleImage: {
+	    width: '90%',
+	    marginTop: '40%',
+	    height: '41px',
+	    textAlign: 'center'
+	  },
+	  inputField: {
+	    background: '#504C5B',
+	    borderRadius: '50px',
+	    width: '80%',
+	    height: '50px',
+	    border: 'none',
+	    marginTop: '20px'
+	  },
+	  topField: {
+	    marginTop: '70px',
+	    background: '#504C5B',
+	    borderRadius: '50px',
+	    width: '80%',
+	    height: '50px',
+	    border: 'none'
+	  }
+	};
 	
-	  function ExampleComponent(props) {
-	    _classCallCheck(this, ExampleComponent);
+	var Login = function (_React$Component) {
+	  _inherits(Login, _React$Component);
 	
-	    return _possibleConstructorReturn(this, (ExampleComponent.__proto__ || Object.getPrototypeOf(ExampleComponent)).call(this, props));
+	  function Login(props) {
+	    _classCallCheck(this, Login);
+	
+	    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
 	  }
 	
-	  _createClass(ExampleComponent, [{
+	  _createClass(Login, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { style: styles.background },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-xs-4 col-xs-offset-4', style: _common_styles2.default.centre },
+	          _react2.default.createElement('img', { src: 'http://res.cloudinary.com/small-change/image/upload/v1483344546/title_1_yxjmm8.png',
+	            style: styles.titleImage
+	          }),
+	          _react2.default.createElement(
+	            'form',
+	            null,
+	            _react2.default.createElement('input', { type: 'text', name: 'firstname', value: 'Mickey', style: styles.topField }),
+	            _react2.default.createElement('input', { type: 'text', name: 'lastname', value: 'Mouse', style: styles.inputField }),
+	            _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+	          )
+	        ),
 	        _react2.default.createElement(
 	          'p',
 	          { onClick: this.props.updateText },
-	          ' Click Me (ExampleComponent)! '
+	          ' Click Me (Login)! '
 	        )
 	      );
 	    }
 	  }]);
 	
-	  return ExampleComponent;
+	  return Login;
 	}(_react2.default.Component);
 	
-	exports.default = ExampleComponent;
+	exports.default = Login;
 
 /***/ },
 /* 218 */
-/*!******************************************!*\
-  !*** ./src/client/app/reducers/index.js ***!
-  \******************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _redux = __webpack_require__(/*! redux */ 190);
-	
-	var _exampleReducer = __webpack_require__(/*! ./exampleReducer */ 219);
-	
-	var _exampleReducer2 = _interopRequireDefault(_exampleReducer);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var mainReducer = (0, _redux.combineReducers)({
-	  exampleReducer: _exampleReducer2.default
-	});
-	
-	exports.default = mainReducer;
-
-/***/ },
-/* 219 */
-/*!***************************************************!*\
-  !*** ./src/client/app/reducers/exampleReducer.js ***!
-  \***************************************************/
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var initialState = {
-	  text: 'text from redux store'
-	};
-	
-	var exampleReducer = function exampleReducer() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-	  var action = arguments[1];
-	
-	  switch (action.type) {
-	    case 'EXAMPLE_ACTION_TYPE':
-	      return {
-	        text: action.text.text
-	      };
-	    default:
-	      return state;
-	  }
-	};
-	
-	exports.default = exampleReducer;
-
-/***/ },
-/* 220 */
 /*!*****************************************!*\
   !*** ./src/client/app/actions/index.js ***!
   \*****************************************/
@@ -24589,6 +24573,86 @@
 	}();
 	
 	exports.default = Actions;
+
+/***/ },
+/* 219 */
+/*!******************************************!*\
+  !*** ./src/client/app/reducers/index.js ***!
+  \******************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _redux = __webpack_require__(/*! redux */ 190);
+	
+	var _exampleReducer = __webpack_require__(/*! ./exampleReducer */ 220);
+	
+	var _exampleReducer2 = _interopRequireDefault(_exampleReducer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mainReducer = (0, _redux.combineReducers)({
+	  exampleReducer: _exampleReducer2.default
+	});
+	
+	exports.default = mainReducer;
+
+/***/ },
+/* 220 */
+/*!***************************************************!*\
+  !*** ./src/client/app/reducers/exampleReducer.js ***!
+  \***************************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var initialState = {
+	  text: 'text from redux store'
+	};
+	
+	var exampleReducer = function exampleReducer() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case 'EXAMPLE_ACTION_TYPE':
+	      return {
+	        text: action.text.text
+	      };
+	    default:
+	      return state;
+	  }
+	};
+	
+	exports.default = exampleReducer;
+
+/***/ },
+/* 221 */
+/*!*****************************************!*\
+  !*** ./src/client/app/common_styles.js ***!
+  \*****************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var styles = {
+	  centre: {
+	    display: 'block',
+	    textAlign: 'center'
+	  }
+	};
+	
+	exports.default = styles;
 
 /***/ }
 /******/ ]);
