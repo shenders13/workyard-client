@@ -1,7 +1,7 @@
 {
-  "name": "react-boiler-plate",
+  "name": "workyard-client",
   "version": "1.0.0",
-  "description": "Boiler Plate Automatically Setting Up a React.js Environment Using Npm, Babel 6 and Webpack",
+  "description": "Workyard React client",
   "main": "index.js",
   "scripts": {
     "test": "test",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shenders13/ReactBoilerPlate.git"
+    "url": "https://github.com/shenders13/workyard-client"
   },
   "author": "Sam Henderson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/shenders13/ReactBoilerPlate/issues"
+    "url": "https://github.com/shenders13/workyard-client/issues"
   },
-  "homepage": "https://github.com/shenders13/ReactBoilerPlate#readme",
+  "homepage": "https://github.com/shenders13/workyard-client#readme",
   "dependencies": {
     "babel-core": "^6.20.0",
     "babel-loader": "^6.2.9",
