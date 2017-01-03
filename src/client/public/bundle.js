@@ -63,7 +63,7 @@
 	
 	var _redux = __webpack_require__(/*! redux */ 190);
 	
-	var _reducers = __webpack_require__(/*! ./reducers */ 219);
+	var _reducers = __webpack_require__(/*! ./reducers */ 220);
 	
 	var _reducers2 = _interopRequireDefault(_reducers);
 	
@@ -22040,7 +22040,7 @@
 	
 	var _Login2 = _interopRequireDefault(_Login);
 	
-	var _index = __webpack_require__(/*! ../actions/index */ 218);
+	var _index = __webpack_require__(/*! ../actions/index */ 219);
 	
 	var _index2 = _interopRequireDefault(_index);
 	
@@ -24449,7 +24449,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _common_styles = __webpack_require__(/*! ../common_styles */ 221);
+	var _common_styles = __webpack_require__(/*! ../common_styles */ 218);
 	
 	var _common_styles2 = _interopRequireDefault(_common_styles);
 	
@@ -24482,7 +24482,8 @@
 	    border: 'none',
 	    marginTop: '20px',
 	    paddingLeft: '20px',
-	    color: '#a6a9a9'
+	    color: '#a6a9a9',
+	    fontFamily: 'FontAwesome'
 	  },
 	  topField: {
 	    marginTop: '70px',
@@ -24492,12 +24493,25 @@
 	    height: '50px',
 	    border: 'none',
 	    paddingLeft: '20px',
-	    color: '#a6a9a9'
+	    color: '#a6a9a9',
+	    fontFamily: 'FontAwesome'
 	  },
 	  submitButton: {
 	    display: 'inline',
 	    marginTop: '20px',
 	    background: '#00B4B1',
+	    borderRadius: '50px',
+	    color: 'white',
+	    fontSize: '18px',
+	    fontWeight: '400',
+	    width: '80%',
+	    height: '50px',
+	    border: 'none'
+	  },
+	  submitButtonHover: {
+	    display: 'inline',
+	    marginTop: '20px',
+	    background: '#02bebb',
 	    borderRadius: '50px',
 	    color: 'white',
 	    fontSize: '18px',
@@ -24517,12 +24531,31 @@
 	    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
 	
 	    _this.state = {
-	      fieldFocus: false
+	      fieldFocus: false,
+	      hover: false
 	    };
+	    _this.onMouseEnterHandler = _this.onMouseEnterHandler.bind(_this);
+	    _this.onMouseLeaveHandler = _this.onMouseLeaveHandler.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(Login, [{
+	    key: 'onMouseEnterHandler',
+	    value: function onMouseEnterHandler() {
+	      this.setState({
+	        hover: true
+	      });
+	      console.log('enter');
+	    }
+	  }, {
+	    key: 'onMouseLeaveHandler',
+	    value: function onMouseLeaveHandler() {
+	      this.setState({
+	        hover: false
+	      });
+	      console.log('leave');
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -24538,10 +24571,16 @@
 	          _react2.default.createElement(
 	            'form',
 	            null,
-	            _react2.default.createElement('input', { type: 'text', id: 'username', placeholder: 'Username', style: styles.topField }),
-	            _react2.default.createElement('input', { type: 'text', id: 'password', placeholder: 'Password', style: styles.inputField }),
+	            _react2.default.createElement('input', { type: 'email', id: 'email', placeholder: '\uF007      Email', style: styles.topField }),
+	            _react2.default.createElement('input', { type: 'password', id: 'password', placeholder: '\uF023      Password', style: styles.inputField }),
 	            _react2.default.createElement('br', null),
-	            _react2.default.createElement('input', { type: 'submit', value: 'Log In', style: styles.submitButton })
+	            _react2.default.createElement('input', {
+	              type: 'submit',
+	              value: 'Log In',
+	              style: this.state.hover ? styles.submitButtonHover : styles.submitButton,
+	              onMouseEnter: this.onMouseEnterHandler,
+	              onMouseLeave: this.onMouseLeaveHandler
+	            })
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -24560,6 +24599,27 @@
 
 /***/ },
 /* 218 */
+/*!*****************************************!*\
+  !*** ./src/client/app/common_styles.js ***!
+  \*****************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var styles = {
+	  centre: {
+	    display: 'block',
+	    textAlign: 'center'
+	  }
+	};
+	
+	exports.default = styles;
+
+/***/ },
+/* 219 */
 /*!*****************************************!*\
   !*** ./src/client/app/actions/index.js ***!
   \*****************************************/
@@ -24596,7 +24656,7 @@
 	exports.default = Actions;
 
 /***/ },
-/* 219 */
+/* 220 */
 /*!******************************************!*\
   !*** ./src/client/app/reducers/index.js ***!
   \******************************************/
@@ -24610,7 +24670,7 @@
 	
 	var _redux = __webpack_require__(/*! redux */ 190);
 	
-	var _exampleReducer = __webpack_require__(/*! ./exampleReducer */ 220);
+	var _exampleReducer = __webpack_require__(/*! ./exampleReducer */ 221);
 	
 	var _exampleReducer2 = _interopRequireDefault(_exampleReducer);
 	
@@ -24623,7 +24683,7 @@
 	exports.default = mainReducer;
 
 /***/ },
-/* 220 */
+/* 221 */
 /*!***************************************************!*\
   !*** ./src/client/app/reducers/exampleReducer.js ***!
   \***************************************************/
@@ -24653,27 +24713,6 @@
 	};
 	
 	exports.default = exampleReducer;
-
-/***/ },
-/* 221 */
-/*!*****************************************!*\
-  !*** ./src/client/app/common_styles.js ***!
-  \*****************************************/
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var styles = {
-	  centre: {
-	    display: 'block',
-	    textAlign: 'center'
-	  }
-	};
-	
-	exports.default = styles;
 
 /***/ }
 /******/ ]);

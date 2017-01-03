@@ -22,7 +22,8 @@ const styles = {
     border: 'none',
     marginTop: '20px',
     paddingLeft: '20px',
-    color: '#a6a9a9'
+    color: '#a6a9a9',
+    fontFamily: 'FontAwesome',
   },
   topField: {
     marginTop: '70px',
@@ -32,7 +33,8 @@ const styles = {
     height: '50px',
     border: 'none',
     paddingLeft: '20px',
-    color: '#a6a9a9'
+    color: '#a6a9a9',
+    fontFamily: 'FontAwesome',
   },
   submitButton: {
     display: 'inline',
@@ -46,8 +48,19 @@ const styles = {
     height: '50px',
     border: 'none',
   },
+  submitButtonHover: {
+    display: 'inline',
+    marginTop: '20px',
+    background: '#02bebb',
+    borderRadius: '50px',
+    color: 'white',
+    fontSize: '18px',
+    fontWeight: '400',
+    width: '80%',
+    height: '50px',
+    border: 'none',
+  },
 }
-
 
 class Login extends React.Component {
 
@@ -55,7 +68,24 @@ class Login extends React.Component {
     super(props);
     this.state = {
       fieldFocus: false,
+      hover: false,
     };
+    this.onMouseEnterHandler = this.onMouseEnterHandler.bind(this)
+    this.onMouseLeaveHandler = this.onMouseLeaveHandler.bind(this)
+  }
+
+  onMouseEnterHandler() {
+      this.setState({
+          hover: true
+      });
+      console.log('enter');
+  }
+
+  onMouseLeaveHandler() {
+      this.setState({
+          hover: false
+      });
+      console.log('leave');
   }
 
   render() {
@@ -67,9 +97,15 @@ class Login extends React.Component {
              className='animated flipInX'
             />
             <form>
-              <input type="text" id="username" placeholder="Username" style={styles.topField}/>
-              <input type="text" id="password" placeholder="Password" style={styles.inputField}/><br />
-              <input type="submit" value="Log In" style={styles.submitButton}/>
+              <input type="email" id="email" placeholder="&#xf007;      Email" style={styles.topField}/>
+              <input type="password" id="password" placeholder="&#xf023;      Password" style={styles.inputField}/><br />
+              <input 
+                type="submit" 
+                value="Log In" 
+                style={this.state.hover? styles.submitButtonHover : styles.submitButton}
+                onMouseEnter={this.onMouseEnterHandler}
+                onMouseLeave={this.onMouseLeaveHandler} 
+              />
             </form>
         </div>
         <p onClick={this.props.updateText}> Click Me (Login)! </p>
